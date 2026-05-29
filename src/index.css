@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Nunito:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Design Tokens ─────────────────────────────── */
+:root {
+  --font-display: 'Exo 2', sans-serif;
+  --font-body:    'Nunito', sans-serif;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Dark palette */
+  --bg:           #05060C;
+  --surface:      #0C0D17;
+  --surface-2:    #13152200;
+  --surface-up:   #181A28;
+  --border:       rgba(255,255,255,0.07);
+  --border-2:     rgba(255,255,255,0.11);
+
+  --text:         #E8EAFF;
+  --text-2:       #7A83A8;
+  --text-3:       #3D4466;
+
+  --accent:       #00D2A8;
+  --accent-hover: #00B894;
+  --accent-dim:   rgba(0,210,168,0.12);
+
+  --price:        #F59E0B;
+  --price-dim:    rgba(245,158,11,0.12);
+
+  --success:      #34D399;
+  --warning:      #FBBF24;
+  --error:        #F87171;
+
+  --glow:         0 0 40px rgba(0,210,168,0.12);
+  --shadow:       0 4px 24px rgba(0,0,0,0.5);
+  --shadow-lg:    0 16px 48px rgba(0,0,0,0.6);
+}
+
+/* ─── Base ───────────────────────────────────────── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Typography Utilities ───────────────────────── */
+.font-display { font-family: var(--font-display); }
+.font-body    { font-family: var(--font-body); }
+.font-mono    { font-family: var(--font-mono); }
+
+/* Legacy compat */
+.font-Bebas  { font-family: var(--font-display); letter-spacing: 0.04em; }
+.font-Roboto { font-family: var(--font-body); }
+
+/* ─── Scrollbar ──────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #2a2d3e; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #3d4160; }
+
+/* ─── Skeleton ───────────────────────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #0c0d17 25%, #181a28 50%, #0c0d17 75%);
+  background-size: 1200px 100%;
+  animation: shimmer 1.8s infinite;
+  border-radius: 8px;
+}
+
+/* ─── Animations ─────────────────────────────────── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes slideRight {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(0,210,168,0.15); }
+  50%       { box-shadow: 0 0 40px rgba(0,210,168,0.30); }
+}
+
+.animate-fade-up    { animation: fadeUp   0.5s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-fade-in    { animation: fadeIn   0.4s ease forwards; }
+.animate-scale-in   { animation: scaleIn  0.3s cubic-bezier(0.22,1,0.36,1) forwards; }
+.animate-slide-right{ animation: slideRight 0.4s ease forwards; }
+.animate-glow       { animation: glowPulse 2.5s ease-in-out infinite; }
+
+/* ─── Stagger delays ─────────────────────────────── */
+.delay-75  { animation-delay: 75ms; }
+.delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+
+/* ─── Line clamp ──────────────────────────────────── */
+.line-clamp-1 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:1; -webkit-box-orient:vertical; }
+.line-clamp-2 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; }
+.line-clamp-3 { overflow:hidden; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; }
+
+/* ─── Glass ──────────────────────────────────────── */
+.glass {
+  background: rgba(12,13,23,0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+.glass-light {
+  background: rgba(24,26,40,0.80);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+/* ─── Input ──────────────────────────────────────── */
+.input-base {
+  font-family: var(--font-body);
+  width: 100%;
+  background: #0c0d17;
+  border: 1.5px solid var(--border-2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-size: 0.9375rem;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+  outline: none;
+}
+.input-base:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(0,210,168,0.12);
+}
+.input-base::placeholder { color: var(--text-3); }
+
+/* ─── Button ─────────────────────────────────────── */
+.btn {
+  font-family: var(--font-body);
+  font-weight: 700;
+  border-radius: 12px;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn:active { transform: scale(0.97); }
+.btn-accent {
+  background: var(--accent);
+  color: #03050A;
+  box-shadow: 0 4px 20px rgba(0,210,168,0.25);
+}
+.btn-accent:hover { background: var(--accent-hover); box-shadow: 0 6px 28px rgba(0,210,168,0.35); }
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--border-2);
+  color: var(--text);
+}
+.btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.2); }
+
+/* ─── Card ───────────────────────────────────────── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
+}
+.card:hover {
+  border-color: rgba(0,210,168,0.25);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,210,168,0.08);
+}
+
+/* ─── Badge ──────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 99px;
+  letter-spacing: 0.03em;
+}
+
+/* ─── Page wrapper ───────────────────────────────── */
+.page-wrapper {
+  min-height: 100vh;
+  background: var(--bg);
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* ─── Section title ──────────────────────────────── */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+/* ─── Table ──────────────────────────────────────── */
+.table-base {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+.table-base th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-2);
+  background: #0c0d17;
+  border-bottom: 1px solid var(--border);
+}
+.table-base td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+.table-base tr:hover td { background: rgba(255,255,255,0.02); }
+.table-base tr:last-child td { border-bottom: none; }
+
+/* ─── Admin sidebar ──────────────────────────────── */
+.admin-nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.admin-nav-item:hover { background: rgba(255,255,255,0.05); color: var(--text); }
+.admin-nav-item.active { background: var(--accent-dim); color: var(--accent); }
+
+/* ─── Noise overlay ──────────────────────────────── */
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* ─── Accent line ─────────────────────────────────── */
+.accent-line {
+  display: inline-block;
+  position: relative;
+}
+.accent-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  border-radius: 99px;
+}
+
+/* ─── Price tag ──────────────────────────────────── */
+.price-tag {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--price);
+  letter-spacing: -0.01em;
+}
+
+/* ─── Glow border ─────────────────────────────────── */
+.glow-border {
+  border: 1px solid rgba(0,210,168,0.3);
+  box-shadow: 0 0 20px rgba(0,210,168,0.08), inset 0 0 20px rgba(0,210,168,0.03);
+}
+
+/* ─── Swiper dark theme overrides ───────────────────── */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #00D2A8 !important;
+  background: rgba(12,13,23,0.85) !important;
+  width: 36px !important;
+  height: 36px !important;
+  border-radius: 10px !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+  backdrop-filter: blur(8px) !important;
+}
+.swiper-button-next::after,
+.swiper-button-prev::after {
+  font-size: 13px !important;
+  font-weight: 900 !important;
+}
+.swiper-button-disabled {
+  opacity: 0.25 !important;
+}
+.swiper-pagination-bullet {
+  background: rgba(255,255,255,0.2) !important;
+  opacity: 1 !important;
+}
+.swiper-pagination-bullet-active {
+  background: #00D2A8 !important;
+  box-shadow: 0 0 8px rgba(0,210,168,0.5) !important;
+}
+
+/* ─── Select dark style ───────────────────────────── */
+select option {
+  background-color: #0C0D17;
+  color: #E8EAFF;
+}
+
+/* ─── Checkbox accent ────────────────────────────── */
+input[type="checkbox"] {
+  accent-color: #00D2A8;
+}
+input[type="radio"] {
+  accent-color: #00D2A8;
+}
+
+/* ─── Scrollbar (thin) ───────────────────────────── */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
