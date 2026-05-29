@@ -19,8 +19,8 @@ cho Windows).
 1. Mở phần mềm **XAMPP Control Panel**.
 2. Nhấn nút **Start** ở dòng **Apache** và **MySQL** (Khi hiện màu xanh là thành công).
 3. Truy cập đường dẫn: http://localhost/phpmyadmin/
-4. Nhấn vào mục **Mới (New)** ở cột bên trái -> Đặt tên cơ sở dữ liệu là: `btl_cnpm` (Hoặc tên khớp với cấu hình trong code).
-5. Nhấn **Nhập (Import)** -> Chọn tệp tin `.sql` (nếu có trong thư mục dự án) -> Nhấn **Thực hiện (Go)**.
+4. Nhấn vào mục **Mới (New)** ở cột bên trái -> Đặt tên cơ sở dữ liệu là: `bindata` (Hoặc có thể tùy cấu hình trong code).
+5. Nhấn **Thực hiện (Go)**.
 
 ### Bước 2: Chạy Backend (Máy chủ Java Spring Boot)
 1. Truy cập vào thư mục: `java-web/`

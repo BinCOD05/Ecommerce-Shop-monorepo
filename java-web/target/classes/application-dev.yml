@@ -1,0 +1,57 @@
+spring:
+  config:
+    activate:
+      on-profile: dev
+  devtools:
+    add-properties: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/bindata
+    username: app
+    password: 12345
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#    hikari: # Connection poll
+#      max-lifetime: 300000      # 5 phút
+#      idle-timeout: 60000       # 1 phút
+#      validation-timeout: 5000  # 5 giây
+#      minimum-idle: 5
+#      maximum-pool-size: 20
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  security:
+    user:
+        name: binh
+        password: 12345
+        roles: USER
+# environment variables ;
+host:
+  ip: 'localhost'
+  port: '3306'
+mysql:
+  db: 'bindata'
+  user: 'app'
+  pass: '12345'
+
+  # application-dev.yml
+springdoc:
+  api-docs:
+    enabled: true
+  swagger-ui:
+    enabled: true
+openapi:
+  service:
+    api-docs: web-java
+    server: http://localhost:${server.port}
+    title: Binh Dep Trai Trum Backend
+    version: 1.0.0
+jwt:
+  expiryMinute: 30
+  expiryDay: 14
+  accessKey: SbeFezwgfO+DoUuCEHBUxNQaQOeRBj4dje0VEBd2P/k=
+  refreshKey: gdkIKUlNpRGqFo+VMfbH2Ebkik0G99lb1ywmIRYdV58=
+
+cloudinary:
+  cloud-name: dqkfttwu4
+  api-key: 151963421813818
+  api-secret: P-sZYm_X3nVP_C7jZXi0TxwYSYE
