@@ -1,0 +1,15 @@
+[Sat 05/30/2026 13:09:19.79] Bat dau setup 
+PROJECT_DIR = C:\Users\admin\Desktop\DACNTT 
+[13:09:21.61] Buoc 1: Chocolatey 
+[13:09:21.66] Chocolatey OK 
+[13:09:21.67] Buoc 2: JDK 21 
+[13:09:21.86] Java OK 
+[13:09:21.87] Buoc 3: Maven 
+[13:09:21.92] Maven OK 
+[13:09:21.92] Buoc 4: Node.js 
+[13:09:21.98] Node.js OK 
+[13:09:21.98] Buoc 5: MySQL 
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
+mysql: [Warning] Using a password on the command line interface can be insecure.
+ERROR 1045 (28000): Access denied for user 'root'@'localhost' (using password: YES)
