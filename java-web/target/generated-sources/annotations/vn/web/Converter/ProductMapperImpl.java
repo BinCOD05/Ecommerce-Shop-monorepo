@@ -19,7 +19,7 @@ import vn.web.Model.ProductSpecs;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2026-05-29T14:22:36+0700",
+    date = "2026-05-29T15:14:24+0700",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 22.0.2 (Oracle Corporation)"
 )
 @Component
